@@ -11,7 +11,7 @@ class EquacioPrimerGrau:
 
         equ=self.seq.split()
         a=equ[0]
-        a=a[1-1]
+        a=a[:-1]
         b=equ[2]
         operador=equ[1]
         c=equ[4]
