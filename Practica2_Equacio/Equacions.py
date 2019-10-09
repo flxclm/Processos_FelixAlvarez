@@ -9,21 +9,30 @@ class EquacioPrimerGrau:
 
     def calcula(self):
 
-        equ=self.seq.split()
-        a=equ[0]
-        a=a[:-1]
-        b=equ[2]
-        operador=equ[1]
-        c=equ[4]
+        try:
+            self.equ=self.seq.split()
+            self.a=self.equ[0]
+            self.a=self.a[:-1]
+            self.b=self.equ[2]
+            self.operador=self.equ[1]
+            self.c=self.equ[4]
+        except:
+            return ("l'equacio no segueix el format: " + self.seq)
+        try:
 
-        if(operador=="+"):
-            resultat=(int(c)-int(b))/int(a)
+            if(self.operador=="+"):
+                self.resultat=(float(self.c)-float(self.b))/float(self.a)
 
-            if(operador=="-"):
-                resultat=(int(c)+int(b))/int(a)
+            elif(self.operador=="-"):
+                self.resultat=(float(self.c)+float(self.b))/float(self.a)
+            else:
+                self.resultat = "Operador no valid: " +self.operador
 
-            print("x = "+str(resultat))
+            return self.resultat
+
+        except:
+            return ("l'equacio conte caracter no calculables: " + self.seq)
 
 equacio = EquacioPrimerGrau("2x + 3 = 7")
-print(equacio.seq)
+#print(equacio.seq)
 equacio.calcula()
