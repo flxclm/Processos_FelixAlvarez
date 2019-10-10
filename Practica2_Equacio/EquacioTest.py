@@ -33,3 +33,5 @@ class TestEquacio(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
+#comentat per poder guardar

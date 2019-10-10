@@ -36,3 +36,4 @@ class EquacioPrimerGrau:
 equacio = EquacioPrimerGrau("2x + 3 = 7")
 #print(equacio.seq)
 equacio.calcula()
+#comentat per poder  guardar 
