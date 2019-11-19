@@ -207,7 +207,22 @@ class Bullet(Entity):
         if self.duration==0:
             self.kill()
 
+def refresh():
+    time=0
+    while world.running:
 
+        asteroid = Asteroid((random.randint(0,800), random.randint(0,800)))
+        if len(world.sprites)<=30:
+            world.sprites.add(asteroid)
+            time=0
+
+        world.update()
+        clock.tick(40)
+
+player = Player((400,300))
+world = World((800,600), player)
+world.running = True
+clock = pygame.time.Clock()
 
 def main():
     """ runs our application """
@@ -231,13 +246,15 @@ def main():
     time = 0
 
 
+
+
     while running:
 
         if time == 20 and len(world.sprites) <= 30:
             asteroid = Asteroid((random.randint(0,800), random.randint(0,800)))
-            bullet = Bullet((20,30),30.0,30)
+            #bullet = Bullet((20,30),30.0,30)
             world.sprites.add(asteroid)
-            world.sprites.add(bullet)
+            #world.sprites.add(bullet)
             len(world.sprites)
             time=0
 
