@@ -183,8 +183,9 @@ class Asteroid(Entity):
     def __init__(self, position):
         self.orig_image = pygame.image.load('assets/asteroid.png')
         super(Asteroid, self).__init__(self.orig_image, position)
-        self.motion = Vector.from_degrees(random.randint(15,360),12)
-        self.duration = 30
+        self.motion = Vector(random.randint(-5,5),random.randint(-5,5))
+        self.motion = Vector.from_degrees(random.randint(100,360),3)
+        self.duration = 185
 
     def update(self):
         self.duration=self.duration-1
@@ -228,16 +229,16 @@ def main():
     # main loop
     running = True
     time = 0
-    max = 0
+
 
     while running:
 
-        if time == 20 and max <= 30:
+        if time == 20 and len(world.sprites) <= 30:
             asteroid = Asteroid((random.randint(0,800), random.randint(0,800)))
-            bullet = Bullet((40,30),30.0,40)
+            bullet = Bullet((20,30),30.0,30)
             world.sprites.add(asteroid)
             world.sprites.add(bullet)
-            max=max+1
+            len(world.sprites)
             time=0
 
         events = pygame.event.get()
